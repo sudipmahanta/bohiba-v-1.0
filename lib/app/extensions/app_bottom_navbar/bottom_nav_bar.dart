@@ -1,10 +1,9 @@
 import 'package:bohiba/presentation/screens/home/home_screens/home_screen.dart';
-import 'package:bohiba/presentation/screens/network/network_screens/network_screen.dart';
-import 'package:bohiba/presentation/screens/profile/profile_screen/profile_screen.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
+import '../../../presentation/screens/dashboard/dashboard_screen/dashboard_screen.dart';
 import '../../../presentation/screens/notification/notification_screen/notification_screen.dart';
 import '../app_color/app_color.dart';
 
@@ -25,31 +24,31 @@ class _BohibaNavBarState extends State<BohibaNavBar> {
         label: "Home",
         tooltip: "Home"
     ),
-    BottomNavigationBarItem(
+   /* BottomNavigationBarItem(
         icon: Icon(Remix.parent_line),
         activeIcon: Icon(Remix.parent_fill),
         label: "Network",
         tooltip: "Network"
-    ),
+    ),*/
     BottomNavigationBarItem(
-        icon: Icon(EvaIcons.bellOutline),
-        activeIcon: Icon(EvaIcons.bell),
+        icon: Icon(Remix.notification_line),
+        activeIcon: Icon(Remix.notification_fill),
         label: "Notification",
         tooltip: "Notification"
     ),
     BottomNavigationBarItem(
-      icon: Icon(Remix.account_circle_line),
-      activeIcon: Icon(Remix.account_circle_fill),
-      label: "Profile",
-      tooltip: "Profile",
+      icon: Icon(Remix.dashboard_fill),
+      activeIcon: Icon(Remix.function_fill),
+      label: "Dashboard",
+      tooltip: "Dashboard",
     )
   ];
 
   final List _screens = const [
     HomeScreen(),
-    NetworkScreen(),
+   /* NetworkScreen(),*/
     NotificationScreen(),
-    ProfileScreen(),
+    DashboardScreen(),
   ];
 
   void _onTap(int index){
@@ -73,8 +72,8 @@ class _BohibaNavBarState extends State<BohibaNavBar> {
         ),
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: BohibaColors.secoundaryColor,
         onTap: _onTap,

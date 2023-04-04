@@ -6,7 +6,7 @@ class BohibaTheme {
   static final ThemeData lightTheme = ThemeData(
       primaryColor: BohibaColors.primaryColor,
 
-      scaffoldBackgroundColor: Colors.blue.shade50,
+      scaffoldBackgroundColor: Colors.grey.shade50,
       fontFamily: 'Poppins',
 
       elevatedButtonTheme: ElevatedButtonThemeData(

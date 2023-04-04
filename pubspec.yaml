@@ -41,13 +41,14 @@ dependencies:
   community_material_icon: ^5.9.55
   font_awesome_flutter: ^10.4.0
   badges: ^2.0.3
+  #functionality
   carousel_slider: ^4.2.1
+  share_plus: ^6.3.1
   #NavigationBar
   salomon_bottom_bar: ^3.2.0
   persistent_bottom_nav_bar: ^5.0.2
   #internet
   http:
-  #stateManagement
   get: ^4.6.5
 
 dev_dependencies:

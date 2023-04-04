@@ -1,10 +1,12 @@
 import 'package:bohiba/app/extensions/app_icons/bohiba_icon.dart';
-import 'package:community_material_icon/community_material_icon.dart';
+import 'package:bohiba/presentation/screens/home/home_component/home_post_comment/home_post_comment.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../../app/extensions/app_color/app_color.dart';
+import '../../../../../app/extensions/app_page_transition/app_page_transition.dart';
 
 class HomePost extends StatelessWidget {
   const HomePost({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class HomePost extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
-            width: 1.5,
+            width: 0.5,
             color: Colors.grey.shade300
           ),
           borderRadius: BorderRadius.circular(15.0)
@@ -30,7 +32,6 @@ class HomePost extends StatelessWidget {
             userName: "M. RamNarayan",
             userID: "m.narayan71",
           ),
-          const SizedBox(height: 5.0),
 
           const PostDescTag(
             postDescription: "Looking for load near you here we come with solution for all tipper owner get rid of 10apps in your mobile and get solution from\none place",
@@ -50,11 +51,13 @@ class HomePost extends StatelessWidget {
                     child: IntrinsicHeight(
                       child: Row(
                         children: [
-                          ImageIcon(AssetImage(BohibaIcons.ore)),
+                          ImageIcon(AssetImage(BohibaIcons.iron)),
+
                           VerticalDivider(
                             thickness: 1.5,
                             color: BohibaColors.white,
                           ),
+
                           Text("Iron",
                             style: Theme.of(context).textTheme.labelMedium,
                           )
@@ -68,11 +71,13 @@ class HomePost extends StatelessWidget {
                     child: IntrinsicHeight(
                       child: Row(
                         children: [
-                          ImageIcon(AssetImage(BohibaIcons.tire)),
+                          ImageIcon(AssetImage(BohibaIcons.doubleTire)),
+
                           VerticalDivider(
                             thickness: 1.5,
                             color: BohibaColors.white,
                           ),
+
                           SizedBox(
                             height: 20,
                             width: 95,
@@ -100,23 +105,21 @@ class HomePost extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:  [
                 PostsButtons(
                   onTap: (){
-                    debugPrint("Pressed");
+                    Navigator.of(context).push(slideUpRoute(const HomePostComment()));
                   },
-                  iconData: EvaIcons.heartOutline,
+                  iconData: Remix.chat_3_fill,
                   counts: "2.5k",
                 ),
                 PostsButtons(
-                  onTap: (){},
-                  iconData: EvaIcons.messageSquare,
-                  counts: "2.5k",
-                ),
-                const PostsButtons(
+                  onTap: () async{
+                    await Share.share("Hello this post is form Bohiba");
+                  },
                   iconData: Remix.share_forward_fill,
                   counts: "2.5k",
                 ),
@@ -127,9 +130,10 @@ class HomePost extends StatelessWidget {
       ),
     );
   }
+  
 }
 
-class PostUserDetails extends StatelessWidget {
+class PostUserDetails extends StatefulWidget {
   final ImageProvider<Object>? profileImage;
   final String userName;
   final String userID;
@@ -143,6 +147,12 @@ class PostUserDetails extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<PostUserDetails> createState() => _PostUserDetailsState();
+}
+
+class _PostUserDetailsState extends State<PostUserDetails> {
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -152,7 +162,7 @@ class PostUserDetails extends StatelessWidget {
           CircleAvatar(
             radius: 20,
             backgroundColor: BohibaColors.primaryVariantColor,
-            backgroundImage: profileImage,
+            backgroundImage: widget.profileImage,
           ),
           const SizedBox(width: 5),
 
@@ -160,7 +170,7 @@ class PostUserDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(userName,
+              Text(widget.userName,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
                   fontWeight: Theme.of(context).textTheme.headlineMedium!.fontWeight
@@ -169,7 +179,7 @@ class PostUserDetails extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("@$userID",
+                  Text("@${widget.userID}",
                     style: TextStyle(
                         fontSize: Theme.of(context).textTheme.labelSmall!.fontSize,
                         color: Colors.grey,
@@ -183,7 +193,7 @@ class PostUserDetails extends StatelessWidget {
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Text(postedTime,
+                    child: Text(widget.postedTime,
                         style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,
@@ -194,7 +204,7 @@ class PostUserDetails extends StatelessWidget {
                 ],
               )
             ],
-          )
+          ),
         ],
       ),
     );
@@ -206,14 +216,14 @@ class PostDescTag extends StatelessWidget {
   final String tags;
   const PostDescTag({
     Key? key,
-    this.postDescription = "",
+    this.postDescription = "Desc is Empty",
     this.tags = "#bohiba"
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
       child: Wrap(
         runSpacing: 5.0,
         children: [
@@ -222,14 +232,14 @@ class PostDescTag extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                   color: BohibaColors.black,
-                  fontSize: Theme.of(context).textTheme.labelMedium!.fontSize,
+                  fontSize: Theme.of(context).textTheme.labelSmall!.fontSize,
                   fontWeight: Theme.of(context).textTheme.titleSmall!.fontWeight
               )
           ),
           Text(tags,
             style: TextStyle(
-                fontSize: 11,
-                color: BohibaColors.primaryColor),
+                fontSize: Theme.of(context).textTheme.bodySmall!.fontSize,
+            ),
           ),
         ],
       ),
@@ -243,7 +253,7 @@ class CompanyDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 10, left: 8.0),
+      padding: const EdgeInsets.only(top: 10, left: 8.0, bottom: 10),
       alignment: Alignment.centerLeft,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -323,6 +333,7 @@ class PostsButtons extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Material(
       color: Colors.grey.shade100,
+      elevation: 0.5,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0)
       ),
@@ -330,7 +341,7 @@ class PostsButtons extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(10.0),
         child: Container(
-          width: width /3.5,
+          width: width * 0.43,
           height: 35,
           alignment: Alignment.center,
           decoration: BoxDecoration(
@@ -352,7 +363,7 @@ class PostsButtons extends StatelessWidget {
                   style: TextStyle(
                       letterSpacing: 1.2,
                       fontSize: Theme.of(context).textTheme.titleSmall!.fontSize,
-                      color: BohibaColors.black
+                      color: BohibaColors.secoundaryColor
                   ),
                 ),
               )

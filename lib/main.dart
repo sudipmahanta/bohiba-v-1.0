@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       theme: BohibaTheme.lightTheme,
-      home: BohibaNavBar(currentIndex: 1)
+      home: BohibaNavBar(currentIndex: 0)
     );
   }
 }
