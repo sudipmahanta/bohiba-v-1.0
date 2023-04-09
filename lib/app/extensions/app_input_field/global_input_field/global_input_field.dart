@@ -11,6 +11,7 @@ class TextInputField extends StatelessWidget {
   final TextCapitalization textCapitalization;
   final Function(String)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
+  final bool readOnly;
   const TextInputField({Key? key,
     this.hintText,
     this.keyboardType = TextInputType.text,
@@ -19,6 +20,7 @@ class TextInputField extends StatelessWidget {
     this.textCapitalization = TextCapitalization.words,
     this.onChanged,
     this.inputFormatters,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class TextInputField extends StatelessWidget {
         textCapitalization: textCapitalization,
         onChanged: onChanged,
         inputFormatters: inputFormatters,
+        readOnly: readOnly,
         style: TextStyle(
             fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
             color: Theme.of(context).textTheme.bodyLarge!.color,

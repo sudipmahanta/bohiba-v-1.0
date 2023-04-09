@@ -1,4 +1,5 @@
 import 'package:bohiba/app/extensions/app_bottom_navbar/bottom_nav_bar.dart';
+import 'package:bohiba/presentation/screens/auth/auth_screens/signup_screen.dart';
 import 'package:bohiba/presentation/screens/spalsh/splash_screens/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       theme: BohibaTheme.lightTheme,
-      home: BohibaNavBar(currentIndex: 0)
+      home: const SignUpScreen()
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../../app/extensions/app_button/global_button/global_button.dart';
 import '../../../../app/extensions/app_color/app_color.dart';
 import '../../../../app/extensions/app_input_field/global_input_field/global_input_field.dart';
+import '../../user_authentication/screen/user_auth_screen/user_auth_screen.dart';
 import 'signin_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -78,14 +79,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: height * 0.02),
 
-                PrimaryButton(label: 'Sign up',
+                PrimaryButton(
+                    label: 'Sign up',
                     onPressed: () {
-                      /*if (signupKey.currentState!.validate()){
-                        Get.to(()=> const UserAuthScreen());
-                        // createUser();
-                      }else{
-                        const SnackBar(content: Text("404 Failed"));
-                      }*/
+                      Get.to(()=> const UserAuthScreen());
                     }
                 )
               ]
@@ -111,7 +108,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(
                       color: BohibaColors.primaryColor,
                       fontWeight: FontWeight.w600,
-                      fontSize: 12.0),
+                      fontSize: 12.0
+                  ),
                 )
             ),
           ],

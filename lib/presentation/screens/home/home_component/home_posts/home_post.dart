@@ -15,7 +15,8 @@ class HomePost extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return  Container(
-      margin: const EdgeInsets.only(bottom: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      margin: const EdgeInsets.only(bottom: 25.0),
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -27,11 +28,11 @@ class HomePost extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const PostUserDetails(
+          /*const PostUserDetails(
             profileImage: NetworkImage('https://images.unsplash.com/photo-1678361912768-454545823d31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),
             userName: "M. RamNarayan",
             userID: "m.narayan71",
-          ),
+          ),*/
 
           const PostDescTag(
             postDescription: "Looking for load near you here we come with solution for all tipper owner get rid of 10apps in your mobile and get solution from\none place",
@@ -308,7 +309,7 @@ class WheelMetalContainer extends StatelessWidget {
       width: width/2.35,
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       decoration: BoxDecoration(
-          color: Colors.grey.shade100,
+          color: Colors.grey.shade50,
           borderRadius: const BorderRadius.horizontal(left: Radius.circular(10))
       ),
       child: child,
@@ -332,7 +333,7 @@ class PostsButtons extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Material(
-      color: Colors.grey.shade100,
+      color: Colors.grey.shade50,
       elevation: 0.5,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0)
