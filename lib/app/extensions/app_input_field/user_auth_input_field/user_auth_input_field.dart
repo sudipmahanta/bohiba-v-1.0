@@ -270,7 +270,7 @@ class _UserAuthContainerImageUploadState extends State<UserAuthContainerImageUpl
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: Material(
-        color: Colors.grey.shade300,
+        color: Colors.grey.shade200,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0)
         ),

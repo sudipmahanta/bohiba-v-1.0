@@ -54,12 +54,12 @@ class ProfileScreen extends StatelessWidget {
                 color: BohibaColors.black
               )
             ),
-            Text("@m.narayan71",
+            /*Text("@m.narayan71",
               style: TextStyle(
                 fontSize: Theme.of(context).textTheme.bodyMedium!.fontSize,
                 color: BohibaColors.secoundaryColor
               )
-            ),
+            ),*/
             Chip(
               labelPadding: const EdgeInsets.symmetric(horizontal: 15.0),
               shape: RoundedRectangleBorder(
@@ -82,8 +82,6 @@ class ProfileScreen extends StatelessWidget {
                   )
               ),
             ),
-
-            
           ],
         ),
       ),

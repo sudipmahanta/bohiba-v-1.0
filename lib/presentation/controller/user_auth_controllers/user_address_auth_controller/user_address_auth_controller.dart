@@ -33,7 +33,6 @@ class UserAddressAuthController extends GetxController {
           headers: header
       );
       areaCodeModel = areaCodeModelFromJson(response.body);
-      debugPrint(response.body);
 
       if(response.statusCode == 200){
         areaCodeDataModel.value = areaCodeModel;
@@ -48,6 +47,7 @@ class UserAddressAuthController extends GetxController {
         stateController.text = areaCodeModel[0].postOffice![0].state.toString();
         countryController.text = areaCodeModel[0].postOffice![0].country.toString();
 
+        debugPrint("Pin-code Api Fetched Data");
         loadPin.value = false;
       }
 

@@ -17,8 +17,8 @@ class BohibaNavBar extends StatefulWidget {
 
 class _BohibaNavBarState extends State<BohibaNavBar> {
 
-  get items =>  const [
-    BottomNavigationBarItem(
+  get items =>  [
+    const BottomNavigationBarItem(
         icon: Icon(Remix.home_line),
         activeIcon: Icon(Remix.home_fill),
         label: "Home",
@@ -30,13 +30,13 @@ class _BohibaNavBarState extends State<BohibaNavBar> {
         label: "Network",
         tooltip: "Network"
     ),*/
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
         icon: Icon(Remix.notification_line),
         activeIcon: Icon(Remix.notification_fill),
         label: "Notification",
         tooltip: "Notification"
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Remix.dashboard_fill),
       activeIcon: Icon(Remix.function_fill),
       label: "Dashboard",
